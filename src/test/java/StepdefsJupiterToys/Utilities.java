@@ -1,4 +1,4 @@
-package Stepdefs_Jupiter_Toys;
+package StepdefsJupiterToys;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ public class Utilities {
 
 	public WebDriver driver;
      
-	static final String Contact_Page_objectspath = "src/test/resources/Jupiter_Toys-Demo/xpath.properties";
+	static final String Contact_Page_objectspath = "src/test/resources/JupiterToysDemo/xpath.properties";
    
 	
 	public String getPageElement(String ele_name) throws IOException {
@@ -50,7 +50,7 @@ public class Utilities {
     
 	}
 	
-	public byte[] capture_screen() throws IOException{
+	public byte[] captureScreen() throws IOException{
 
 	    TakesScreenshot ts = (TakesScreenshot) driver;
 	    File source = ts.getScreenshotAs(OutputType.FILE);
@@ -75,7 +75,7 @@ public class Utilities {
     public String GET_TEXT(String ele_key) throws IOException {
     	return driver.findElement(By.xpath(getPageElement(ele_key))).getText();
     }
-    public float get_price_for_each_product(String ele_key) throws IOException, InterruptedException {
+    public float getPriceForEachProduct(String ele_key) throws IOException, InterruptedException {
     	
     	Thread.sleep(1000);
     	String rate = GET_TEXT(ele_key).substring(1, 5);

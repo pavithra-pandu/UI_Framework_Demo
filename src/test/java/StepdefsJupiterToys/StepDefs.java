@@ -1,4 +1,4 @@
-package Stepdefs_Jupiter_Toys;
+package StepdefsJupiterToys;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -25,7 +25,7 @@ import io.cucumber.java.en.When;
 
 
 
-public class Contact_Page extends Utilities {
+public class StepDefs extends Utilities {
 		
 		@Given("^launch Jupiter_Toys web application$")
 		public void launch_web_application() throws IOException {
@@ -121,9 +121,9 @@ public class Contact_Page extends Utilities {
 		@When("Verify the subtotal for each product")
 		public void verify_the_subtotal_for_each_product() throws IOException, InterruptedException {
 		    int[] qty = new int[10];
-			STfrog_price =get_price_for_each_product("ST_Stuffed_Frog_price");
-			STbunny_price=get_price_for_each_product("ST_Fluffy_Bunny_price");
-			STbear_price =get_price_for_each_product("ST_Valentine_Bear_price");
+			STfrog_price =getPriceForEachProduct("ST_Stuffed_Frog_price");
+			STbunny_price=getPriceForEachProduct("ST_Fluffy_Bunny_price");
+			STbear_price =getPriceForEachProduct("ST_Valentine_Bear_price");
 			
 			for (int i=0;i<quantity.size();i++) {
 				 
@@ -141,14 +141,14 @@ public class Contact_Page extends Utilities {
 		@When("Verify the price for each product")
 		public void verify_the_price_for_each_product() throws IOException, InterruptedException {
 			CLICK("shopTab");
-			 Sfrog_price = get_price_for_each_product("Stuffed_Frog_price");
-			 Sbunny_price = get_price_for_each_product("Fluffy_Bunny_price");
-			 Sbear_price = get_price_for_each_product("Valentine_Bear_price");
+			 Sfrog_price = getPriceForEachProduct("Stuffed_Frog_price");
+			 Sbunny_price = getPriceForEachProduct("Fluffy_Bunny_price");
+			 Sbear_price = getPriceForEachProduct("Valentine_Bear_price");
             CLICK("Cart_Tab");
             Thread.sleep(1000);
-			float Cfrog_price = get_price_for_each_product("Cart_Stuffed_Frog_price");
-			float Cbunny_price = get_price_for_each_product("Cart_Fluffy_Bunny_price");
-			float Cbear_price = get_price_for_each_product("Cart_Valentine_Bear_price");
+			float Cfrog_price = getPriceForEachProduct("Cart_Stuffed_Frog_price");
+			float Cbunny_price = getPriceForEachProduct("Cart_Fluffy_Bunny_price");
+			float Cbear_price = getPriceForEachProduct("Cart_Valentine_Bear_price");
 			
 			
 			Assert.assertTrue("prices in shopping page and cart page are same", (Sfrog_price==Cfrog_price) && (Sbunny_price==Cbunny_price) && (Sbear_price==Cbear_price));
@@ -173,7 +173,7 @@ public class Contact_Page extends Utilities {
 		@AfterStep
 		public void afterStep(Scenario s) throws IOException {
 			long ms = System.currentTimeMillis();
-			s.attach(capture_screen(), "image/png", "Scn_"+ms );
+			s.attach(captureScreen(), "image/png", "Scn_"+ms );
 		}
 		
 		@Before
